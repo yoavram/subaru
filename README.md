@@ -43,7 +43,7 @@ There are two usage modes:
 
 This mode is run by simply calling 
 ```
-$ python subscenter.py
+python subscenter.py
 ```
 Subaru will get the latest episodes feed from [subcenter] and search it for the series in the `FAVORITES` constant. It will then download subtitles for every episode it finds.
 
@@ -51,7 +51,7 @@ Subaru will get the latest episodes feed from [subcenter] and search it for the 
 
 In this mode you can specificaly download an episode and even specify the version:
 ```
-$ python subscenter.py <series-name> <season-number> <episode-number> [version-keyword]
+python subscenter.py <series-name> <season-number> <episode-number> [version-keyword]
 ```
   * <series-name> is the name as it appears in the URL of the series page. It is all lowercase and dashes (`-`) are used instead of spaces, without any other punctuation (examples: `modern-family`, `greys-anatomy`, `the-big-bang-theory`)
   * <seasnon-number>/<episode-number>: no need for preciding zero (`1` not `01`).
