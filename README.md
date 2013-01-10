@@ -9,6 +9,7 @@ Subaru automates this process.
 ## Support 
 
 Currently Subaru works with the hebrew subtitle site [subscenter] but can be easily extended by developers familiar with Python, HTML and some jQuery.
+It would probably be easiest to extend it to work with [Bsubs] because [subscenter] is the Hebrew version of [Bsubs].
 
 ## Requirements
 
@@ -76,3 +77,4 @@ Subaru, of course, is a fine car company and is not affiliated with this project
 [Spynner]: https://github.com/makinacorpus/spynner
 [FeedParser]: http://code.google.com/p/feedparser/
 [PyQuery]: https://github.com/gawel/pyquery/
+[Bsubs]: http://www.bsubs.com/en/
