@@ -32,6 +32,7 @@ git clone https://github.com/yoavram/subaru.git
 ## Configuration
 
 You should open `subscenter.py` and change the constants:
+
 1. `OUTPUT_PATH` - subtitle files (`.srt`) will be downloaded to this folder
 2. `FAVORITES` - a list of hebrew names of favorite series to download from the *latest* feed
 
@@ -53,9 +54,10 @@ In this mode you can specificaly download an episode and even specify the versio
 ```
 python subscenter.py <series-name> <season-number> <episode-number> [version-keyword]
 ```
-  * <series-name> is the name as it appears in the URL of the series page. It is all lowercase and dashes (`-`) are used instead of spaces, without any other punctuation (examples: `modern-family`, `greys-anatomy`, `the-big-bang-theory`)
-  * <seasnon-number>/<episode-number>: no need for preciding zero (`1` not `01`).
-  * [version-keyword] is an *optional* argument. Subaru will only download subtitles that have this keyword in the filename. Use this to specifiy the version you want. Exampes: `LOL`, `DivX`.
+
+  * `series-name` is the name as it appears in the URL of the series page. It is all lowercase and dashes (`-`) are used instead of spaces, without any other punctuation (examples: `modern-family`, `greys-anatomy`, `the-big-bang-theory`)
+  * `seasnon-number`/`episode-number`: no need for preciding zero (`1` not `01`).
+  * `version-keyword` is an *optional* argument. Subaru will only download subtitles that have this keyword in the filename. Use this to specifiy the version you want. Exampes: `LOL`, `DivX`.
 
 If the episode was not found a proper message will appear, so feel free to use this to check if a subtitle has been uploaded.
 
