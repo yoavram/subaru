@@ -10,7 +10,8 @@ from zipfile import ZipFile
 SITE_URL = 'http://www.subscenter.org'
 OUTPUT_PATH = r'd:\videos'
 LATEST_FEED_URL = SITE_URL + "/he/feeds/all/latest/"
-FAVORITES = [u'משפחה מודרנית']
+FAVORITES = (u'משפחה מודרנית', u'האנטומיה של גריי')
+HELP_OPTIONS = ('-h', '?','--help', '/?', '/h', '/help', '-help', '--h')
 
 def parse_subtitles_links(url):
         br=spynner.Browser()
@@ -63,16 +64,41 @@ def parse_latest_favorites():
 
 def create_episode_url(title, season, episode):
         # 'http://www.subscenter.org/he/subtitle/series/blue-bloods/3/9/'
-        return SITE_URL + '/he/subtitle/series/%s/%d/%d/' % (title, season, episode)
+        return '%s/he/subtitle/series/%s/%d/%d/' % (SITE_URL, title, season, episode)
+
+def create_movie_url(title):
+        # 'http://www.subscenter.org/he/subtitle/movie/the-five-year-engagement/'
+        return '%s/he/subtitle/movie/%s' % (SITE_URL, title)
 
 if __name__=='__main__':
-        if len(sys.argv) >= 4:
+        if len(sys.argv) == 2 and sys.argv[1] in HELP_OPTIONS:
+                print '''Usage:\n
+Download latest from favorites:\n
+                %s\n
+Download movie subtitle:
+                %s <movie-title> [subtitle-keyword]\n
+Download TV episode:
+                %s <show-title> <season-number> <episode-number> [subtitle-keyword]\n
+Print this help message:
+                %s -h\n''' % (sys.argv[0], sys.argv[0], sys.argv[0], sys.argv[0])
+                exit()
+        elif len(sys.argv) >= 4:
+                # tv episode
                 title, season, episode = sys.argv[1], sys.argv[2], sys.argv[3]
                 episode_url = create_episode_url(title, int(season), int(episode))
                 links = parse_subtitles_links(episode_url)
+                if len(sys.argv) > 4:
+                        keyword = sys.argv[4]
+        elif len(sys.argv) >= 1:
+                # movie
+                title  = sys.argv[1]
+                movie_url = create_movie_url(title)
+                links = parse_subtitles_links(movie_url) # TODO test
+                if len(sys.argv) > 1:
+                        keyword = sys.argv[2]
         else:
                 links = parse_latest_favorites()
-        if len(sys.argv) > 4:
-                keyword = sys.argv[4]
+        if keyword:
                 links = filter(lambda x: keyword in x, links)
-        download_links(links)
+        if links:
+                download_links(links) # TODO test for movies
