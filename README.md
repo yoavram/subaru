@@ -46,7 +46,7 @@ This mode is run by simply calling
 ```
 python subscenter.py
 ```
-Subaru will get the latest episodes feed from [subcenter] and search it for the series in the `FAVORITES` constant. It will then download subtitles for every episode it finds.
+Subaru will get the latest episodes feed from [subscenter] and search it for the series in the `FAVORITES` constant. It will then download subtitles for every episode it finds.
 
 ### On demand
 
@@ -72,6 +72,7 @@ I'm not sure that this project needs to be abstracted or anything like this - th
 
 Subaru, of course, is a fine car company and is not affiliated with this project. The name is just a reference to the automation of the subtitle downloading process - auto-sub in Hebrew sounds like "Subaru car".
 
+[subscenter] and other names are also not affiliated with this project, and the content downloaded using this software is under the license of the site from which it is downloaded.
 
 [subscenter]: http://www.subscenter.org/
 [torec]: http://torec.net/
