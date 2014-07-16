@@ -4,7 +4,7 @@ import datetime
 DATE_FORMAT = '%H:%M:%S,%f'
 
 def shift(time_str, seconds):
-  time = datetime.datetime.strptime(time_str, DATE_FORMAT);
+  time = datetime.datetime.strptime('2000:' + time_str, '%Y:' + DATE_FORMAT);
   time_plus_seconds = time + datetime.timedelta(seconds=seconds);
   back_to_string = datetime.datetime.strftime(time_plus_seconds, DATE_FORMAT)[:-3];
   return back_to_string;
