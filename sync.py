@@ -2,10 +2,13 @@ import sys
 import datetime 
 
 DATE_FORMAT = '%H:%M:%S,%f'
+zero = datetime.datetime.strptime('2000:00:00:00,000', '%Y:' + DATE_FORMAT)
 
 def shift(time_str, seconds):
   time = datetime.datetime.strptime('2000:' + time_str, '%Y:' + DATE_FORMAT)
   time_plus_seconds = time + datetime.timedelta(seconds=seconds)
+  if time_plus_seconds < zero:
+    time_plus_seconds = zero
   back_to_string = datetime.datetime.strftime(time_plus_seconds, DATE_FORMAT)[:-3]
   return back_to_string
 
